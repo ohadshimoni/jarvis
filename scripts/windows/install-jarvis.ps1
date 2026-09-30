@@ -273,11 +273,12 @@ Write-Host '====================================================================
 Write-Host ''
 Write-Host ' 1. Open OpenMausBot -> Settings -> Engines: make sure "Hermes" is detected.'
 Write-Host '    (If not: "Set CLI..." and paste the output of:  (Get-Command hermes).Source )'
-Write-Host ' 2. Create the bot:  import  jarvis\jarvis.openmaus.json   (Share/Import team)'
-Write-Host '    or New bot -> Name: Jarvis, Engine: Hermes / hermes-default, Approval: Ask,'
-Write-Host '    Soul: paste jarvis\SOUL.md, Working folder: C:\Users\<you>\Jarvis'
-Write-Host ' 3. Connect Google Calendar, Gmail, Todoist, Notion, Zapier:'
-Write-Host '       powershell -ExecutionPolicy Bypass -File .\connect-apps.ps1'
+Write-Host ' 2. Create the bot:  New bot -> Name: Jarvis, Engine: Hermes / hermes-default, Approval: Ask for approval,'
+Write-Host ('    Working folder: ' + (Join-Path $env:USERPROFILE 'Jarvis') + '  (create it first)')
+Write-Host ('    Soul: open the file below, copy ALL of it and paste it into the Soul field:')
+Write-Host ('        notepad ' + $soulPath)
+Write-Host ' 3. Connect Google Calendar, Gmail, Todoist, Notion, Zapier (run when you have ~20 minutes):'
+Write-Host ('       powershell -ExecutionPolicy Bypass -File "' + $PSScriptRoot + '\connect-apps.ps1"')
 Write-Host ' 4. Phone: install the Android app (APK) from'
 Write-Host '       https://github.com/milind-soni/OpenMausBot/releases   (Android 1.5.0)'
 Write-Host '    then Settings -> Remote access -> scan the QR. Turn on "Always on" in the app.'
